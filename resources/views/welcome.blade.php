@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>
-      Tailwind Starter Template - Landing Page Template: Tailwind Toolbox
+      Landing Page
     </title>
     <meta name="description" content="Simple landind page" />
     <meta name="keywords" content="" />
@@ -20,23 +20,19 @@
 
     <!--Hero-->
     <div class="pt-24">
-      <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+      <div class="container px-3 mx-auto flex flex-wrap flex-col items-center">
         <!--Left Col-->
-        <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-          <p class="uppercase tracking-loose w-full">What business are you?</p>
+        <div class="flex flex-col w-full md:w-2/5 justify-center items-center text-center md:text-center">
+          {{-- <p class="uppercase tracking-loose w-full">What business are you?</p> --}}
           <h1 class="my-4 text-5xl font-bold leading-tight">
-            Main Hero Message to sell yourself!
+            WELCOME TO E-SERVICE APP
           </h1>
-          <p class="leading-normal text-2xl mb-8">
+          {{-- <p class="leading-normal text-2xl mb-8">
             Sub-hero message, not too long and not too short. Make it just right!
-          </p>
+          </p> --}}
           <button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-            Subscribe
+            Download
           </button>
-        </div>
-        <!--Right Col-->
-        <div class="w-full md:w-3/5 py-6 text-center">
-          <img class="w-full md:w-4/5 z-50" src="hero.png" />
         </div>
       </div>
     </div>
@@ -62,7 +58,7 @@
     <section class="bg-white border-b py-8">
       <div class="container max-w-5xl mx-auto m-8">
         <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-          Title
+          Kami dapat melayani permasalahan pada AC anda!
         </h2>
         <div class="w-full mb-4">
           <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
@@ -575,6 +571,6 @@
     @include('layouts.landing-page.footer');
 
     @include('layouts.landing-page.js');
-    
+
   </body>
 </html>
