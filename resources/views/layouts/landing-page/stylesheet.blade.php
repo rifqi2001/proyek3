@@ -4,6 +4,9 @@
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
     <style>
       .gradient {
-        background-color: #141414;
+        background-color: #68b6ef;
+        
       }
+    
+     
     </style>
