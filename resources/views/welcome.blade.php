@@ -261,30 +261,14 @@
       </div>
     </section>
     <section class="bg-white border-b py-8" id="Kontak">
-        <div class="w-full font-bold text-6xl text-blue-400 px-20">
-          <h2 class="w-full font-bold text-6xl text-blue-400 px-6">
-            E-SERVICE
-          </h2>
-          <h2 class="w-full font-bold text-6xl text-gray-800 px-6">
-            tersedia
-          </h2>
-          <h2 class="w-full font-bold text-6xl text-gray-800 px-6">
-            pada aplikasi mobile
-          </h2>
-          <h2 class="w-full font-bold text-6xl text-gray-800 px-6">
-            Download sekarang
-          </h2>
-          <h2 class="w-full font-bold text-6xl text-gray-800 px-6">
-            juga!
-          </h2><br>
-          <div class="flex items-center justify-start ">
-            <button class="mx-auto lg:mx-0 hover:underline gradient text-white text-2xl font-bold rounded-full my-5 py-3 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-125 duration-250 ease-in-out">
-              <a href="https://drive.google.com/drive/folders/1GqaCzvSu8I_GTSV6pKC0zunQ0aTlqmbz?usp=share_link">Download</a>        
-            </button>
-          </div>
+       
+        <div class="flex items-center  ">
+            <img height="500" width="1280" src="assets/ac/service.png">
         </div>
-        <div class="flex items-center justify-end">
-            <img height="500" width="700" src="assets/ac/hp.png">
+        <div class="flex items-center justify-start">
+          <button class="mx-auto lg:mx-20 hover:underline gradient text-white text-2xl font-bold rounded-full my-6 py-3 px-10 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-125 duration-250 ease-in-out">
+            <a href="https://drive.google.com/drive/folders/1GqaCzvSu8I_GTSV6pKC0zunQ0aTlqmbz?usp=share_link">Download</a>        
+          </button>
         </div>
     </section> 
     @include('layouts.landing-page.footer')
