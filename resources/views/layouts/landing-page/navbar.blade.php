@@ -36,9 +36,9 @@
           <a class="toggleColour inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#Kontak">Kontak</a>
         </li>
       </ul>
-      <button id="navAction" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+      <a button id="navAction" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" href="/login" >
           Masuk
-      </button>
+      </a>
     </div>
   </div>
   <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />

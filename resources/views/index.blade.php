@@ -39,7 +39,7 @@
 		 	<div class="text-center">
 		 		<img src="{{ asset('admin') }}/assets/images/logo-icon.png" alt="logo icon">
 		 	</div>
-		  <div class="card-title text-uppercase text-center py-3">sE-rvice</div>
+		  <div class="card-title text-uppercase text-center py-3">E-Service</div>
 		    <form>
 			  <div class="form-group">
 			  <label for="exampleInputUsername" class="sr-only">Username</label>
@@ -79,9 +79,7 @@
 	
 	<!--start color switcher-->
    <div class="right-sidebar">
-    <div class="switcher-icon">
-      <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
-    </div>
+    
     <div class="right-sidebar-content">
 
       <p class="mb-0">Gaussion Texture</p>
