@@ -11,7 +11,7 @@
   <link href="{{ asset('admin') }}/assets/css/pace.min.css" rel="stylesheet"/>
   <script src="{{ asset('admin') }}/assets/js/pace.min.js"></script>
   <!--favicon-->
-  <link rel="icon" href="{{ asset('admin') }}/assets/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="{{ asset('admin') }}/assets/images/logo_E_SERVICE no bg.png" type="image/x-icon">
   <!-- Bootstrap core CSS-->
   <link href="{{ asset('admin') }}/assets/css/bootstrap.min.css" rel="stylesheet"/>
   <!-- animate CSS-->
@@ -23,7 +23,7 @@
   
 </head>
 
-<body class="bg-theme bg-theme1">
+<body class="bg-theme bg-blue" style=" background-color: #68b6ef ">
 
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
@@ -33,13 +33,12 @@
  <div id="wrapper">
 
  <div class="loader-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
-	<div class="card card-authentication1 mx-auto my-5">
-		<div class="card-body">
-		 <div class="card-content p-2">
-		 	<div class="text-center">
-		 		<img src="{{ asset('admin') }}/assets/images/logo-icon.png" alt="logo icon">
+	<div class="card card-authentication1 mx-auto my-3">
+		<div class="card-body" style="background-color: rgb(0 0 0 / 21%);>
+		 <div class="card-content">
+		 	<div class="text-center py-3">
+		 		<img height='150' width='200' src="{{asset('admin/assets/images/logo_E_SERVICE no bg.png')}}">
 		 	</div>
-		  <div class="card-title text-uppercase text-center py-3">sE-rvice</div>
 		    <form>
 			  <div class="form-group">
 			  <label for="exampleInputUsername" class="sr-only">Username</label>
@@ -66,11 +65,14 @@
                 <a href="reset-password.html">Forgot Password</a>
                </div>
 			 </form>
-		   </div>
-		  </div>
-		  <div class="card-footer text-center py-3">
+       <div class="card-footer text-center py-3">
 		    <p class="text-warning mb-0">Belum Punya Akun? <a href="register.html"> Daftar </a></p>
 		  </div>
+		   </div>
+		  </div>
+		  {{-- <div class="card-footer text-center py-3">
+		    <p class="text-warning mb-0">Belum Punya Akun? <a href="register.html"> Daftar </a></p>
+		  </div> --}}
 	     </div>
     
      <!--Start Back To Top Button-->
@@ -86,16 +88,7 @@
 
       <p class="mb-0">Gaussion Texture</p>
       <hr>
-      
-      <ul class="switcher">
-        <li id="theme1"></li>
-        <li id="theme2"></li>
-        <li id="theme3"></li>
-        <li id="theme4"></li>
-        <li id="theme5"></li>
-        <li id="theme6"></li>
-      </ul>
-
+  
       <p class="#68b6ef">Gradient Background</p>
       <hr>
       
