@@ -81,9 +81,7 @@
 	
 	<!--start color switcher-->
    <div class="right-sidebar">
-    <div class="switcher-icon">
-      <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
-    </div>
+    
     <div class="right-sidebar-content">
 
       <p class="mb-0">Gaussion Texture</p>
