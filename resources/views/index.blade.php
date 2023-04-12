@@ -23,7 +23,7 @@
   
 </head>
 
-<body class="bg-theme bg-blue" style=" background-color: #68b6ef ">
+<body class="bg-theme bg-blue" style=" background-color: #d3ebfb ">
 
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
@@ -34,7 +34,7 @@
 
  <div class="loader-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
 	<div class="card card-authentication1 mx-auto my-3">
-		<div class="card-body" style="background-color: rgb(0 0 0 / 21%);>
+		<div class="card-body" style="background-color: #68b6ef ">
 		 <div class="card-content">
 		 	<div class="text-center py-3">
 		 		<img height='150' width='200' src="{{asset('admin/assets/images/logo_E_SERVICE no bg.png')}}">
@@ -81,9 +81,7 @@
 	
 	<!--start color switcher-->
    <div class="right-sidebar">
-    <div class="switcher-icon">
-      <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
-    </div>
+    
     <div class="right-sidebar-content">
 
       <p class="mb-0">Gaussion Texture</p>
