@@ -21,3 +21,7 @@ Route::get('/login', function () {
     return view('index');
 });
 
+Route::get('/dashboard', function(){
+    return view('dashboard');
+});
+
