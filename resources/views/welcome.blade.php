@@ -78,6 +78,12 @@
         <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
           Ingin bergabung jadi mitra?
         </h2>
+        <div class="w-full mb-4">
+          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        </div>
+        <a button id="navAction" class="mx-auto lg:mx- hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" href="https://wa.me/6285864639808" >
+          Gabung
+      </a>
       </div>
     </section>
     <section class="bg-white border-b py-8" id="Pelayanan">
