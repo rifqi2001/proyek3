@@ -60,7 +60,7 @@
 			  </div>
 			<div class="form-row">
 			 </div>
-			 <button type="button" class="btn btn-light btn-block">Login</button>
+			 <button type="button" class="btn btn-light btn-block">LOGIN</button>
              <div class="form-group col-6 text-align-left">
                 <a href="reset-password.html">Forgot Password</a>
                </div>
