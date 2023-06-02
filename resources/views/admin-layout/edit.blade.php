@@ -34,13 +34,13 @@
                                 @method('PUT')
                                 @csrf
                                 <div class="form-group">
-                                    <input type="text" name="name" class="form-control" placeholder="Nama Layanan" value="{{ $layanan->name }}">
+                                    <input type="text" name="name" class="form-control" placeholder="Nama Layanan" value="{{ $layanan->name }}" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="description" class="form-control" placeholder="Deskripsi" value="{{ $layanan->description }}">
+                                    <input type="text" name="description" class="form-control" placeholder="Deskripsi" value="{{ $layanan->description }}" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" name="price" class="form-control" placeholder="Harga" value="{{ $layanan->price }}">
+                                    <input type="number" name="price" class="form-control" placeholder="Harga" value="{{ $layanan->price }}" required>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-success">Simpan</button>

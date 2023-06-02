@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Layanan;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LayananController extends Controller
 {
@@ -30,8 +32,9 @@ class LayananController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        Layanan::create($request->all());
-
+        // Layanan::create($request->all());
+        // $id = Str::uuid();
+        DB::select('CALL insert_layanan("'.$request->name.'","'.$request->description.'","'.$request->price.'")') ;
         return redirect('layanan');
     }
 

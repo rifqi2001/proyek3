@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,15 +20,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function () {
-    return view('index');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
+Route::get('/login', [LoginController::class, 'index'])->name('loginform')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 
-Route::get('/dashboard', function(){
-    return view('admin');
-});
+// Route::get('/dashboard', function(){
+//     return view('admin');
+// });
 
 // Route::get('/layanan', 'LayananController@index')->name('layanan');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('layanan');
 Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');
 Route::get('/layanan/create-layanan', [LayananController::class, 'create'])->name('create-layanan');
 Route::post('/layanan', [LayananController::class, 'store'])->name('simpan-layanan');
@@ -35,10 +40,10 @@ Route::put('layanan/{id}', [LayananController::class,'update']);
 // Route::delete('layanan/{id}', [LayananController::class,'destroy'])->name('hapus-layanan');
 Route::get('/layanan/{id}/destroy', [LayananController::class, 'destroy'])->name('hapus-layanan');
 
-Route::get('dashboard/customer', function(){
-    return view('admin-layout.customer');
+Route::get('customer', function(){
+    return view('admin-layout.akun-customer.customer');
 });
-Route::get('dashboard/teknisi', function(){
-    return view('admin-layout.teknisi');
+Route::get('teknisi', function(){
+    return view('admin-layout.akun-teknisi.teknisi');
 });
 

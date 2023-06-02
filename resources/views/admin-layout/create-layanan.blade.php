@@ -33,13 +33,13 @@
                             <form action="{{ route('layanan') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
-                                    <input type="text" name="name" class="form-control" placeholder="Nama Layanan">
+                                    <input type="text" name="name" class="form-control" placeholder="Nama Layanan" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="description" class="form-control" placeholder="Deskripsi">
+                                    <input type="text" name="description" class="form-control" placeholder="Deskripsi" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" name="price" class="form-control" placeholder="Harga">
+                                    <input type="number" name="price" class="form-control" placeholder="Harga" required>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-success">Simpan</button>

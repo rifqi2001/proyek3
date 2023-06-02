@@ -2,11 +2,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">SB Admin <sup>1</sup></div>
             </a>
 
             <!-- Divider -->
@@ -32,8 +32,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Akun:</h6>
-                        <a class="collapse-item" href="/dashboard/teknisi">Teknisi</a>
-                        <a class="collapse-item" href="/dashboard/customer">Customer</a>
+                        <a class="collapse-item" href="/teknisi">Teknisi</a>
+                        <a class="collapse-item" href="/customer">Customer</a>
                     </div>
                 </div>
             </li>

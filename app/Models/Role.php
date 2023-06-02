@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
+use Spatie\Permission\Models\Role as RoleSpatie;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Layanan extends Model
+class Role extends RoleSpatie
 {
     use HasFactory;
-    protected $guarded = [];
 }
