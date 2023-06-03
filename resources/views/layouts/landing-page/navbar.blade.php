@@ -38,6 +38,9 @@
         <li class="mr-3">
           <a class="toggleColour inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#Kontak">Kontak</a>
         </li>
+        <li class="mr-3">
+          <a class="toggleColour inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/login">Login</a>
+        </li>
       </ul>
       
     </div>

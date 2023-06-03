@@ -25,6 +25,7 @@ Route::get('/', function () {
 // });
 Route::get('/login', [LoginController::class, 'index'])->name('loginform')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Route::get('/dashboard', function(){
 //     return view('admin');
