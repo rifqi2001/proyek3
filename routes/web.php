@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\TeknisiController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -41,10 +42,14 @@ Route::put('layanan/{id}', [LayananController::class,'update']);
 // Route::delete('layanan/{id}', [LayananController::class,'destroy'])->name('hapus-layanan');
 Route::get('/layanan/{id}/destroy', [LayananController::class, 'destroy'])->name('hapus-layanan');
 
+// Route::get('/teknisi', [TeknisiController::class, 'index'])->name('teknisi');
+// Route::get('/teknisi/create-teknisi', [TeknisiController::class, 'create'])->name('create-teknisi');
+Route::resource('teknisi', TeknisiController::class);
+
 Route::get('customer', function(){
-    return view('admin-layout.akun-customer.customer');
+    return view('users.customer.index');
 });
-Route::get('teknisi', function(){
-    return view('admin-layout.akun-teknisi.teknisi');
-});
+// Route::get('teknisi', function(){
+//     return view('admin-layout.akun-teknisi.teknisi');
+// });
 
