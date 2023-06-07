@@ -9,7 +9,7 @@ class Teknisi extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $guarded = [];
     protected $table = 'teknisi';
     public function user()
     {

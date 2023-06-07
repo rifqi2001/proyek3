@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Teknisi;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\User;
 
 class TeknisiController extends Controller
 {
@@ -14,7 +14,7 @@ class TeknisiController extends Controller
     public function index()
     {
         return view('users.teknisi.index')->with([
-            'teknisi' => Teknisi::all()
+            'teknisi' => User::role('teknisi')->get()
         ]);
     }
 
@@ -31,19 +31,20 @@ class TeknisiController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => 'required|unique:users|max:12',
-            'email' => 'required|email|unique:users|max:255',
+            'email' => 'required|email:dns|max:255',
             'password' => 'required|min:8|'
         ]);
 
-        $users = new User;
-        $users->name = $request->name;
-        $users->email = $request->email;
-        $users->password = $request->password;
-        $users->save();
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ])->assignRole('teknisi');
 
-        return to_route('teknisi.index')->with('success','Data berhasil ditambah');
+        return redirect()->route('teknisi')->with('success','Data berhasil ditambah');
     }
 
     /**
@@ -59,7 +60,9 @@ class TeknisiController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('users.teknisi.edit')->with([
+            'teknisi' => User::find($id),
+        ]);
     }
 
     /**
@@ -67,7 +70,10 @@ class TeknisiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $teknisi = User::find($id);
+        $teknisi->update($request->all());
+
+        return redirect('/teknisi');
     }
 
     /**
@@ -75,6 +81,13 @@ class TeknisiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // dd($id);
+        // $teknisi = User::find($id);
+        // $teknisi->delete();
+
+        User::where('id', $id)
+                ->delete();
+
+    return redirect('/teknisi');
     }
 }

@@ -26,20 +26,21 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Creat New Teknisi Account</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Edit Teknisi</h6>
                         </div>
 
                         <div class="card-body">
-                            <form action="{{ route('simpan-teknisi') }}" method="POST">
+                            <form action="/teknisi/{{ $teknisi->id }}" method="POST">
                                 @csrf
+                                @method('PUT')
                                 <div class="form-group">
-                                    <input type="text" name="name" class="form-control" placeholder="Nama Teknisi" required>
+                                    <input type="text" name="name" class="form-control" placeholder="Nama Teknisi" value="{{ $teknisi->name }}" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="email" class="form-control" placeholder="E-mail" required>
+                                    <input type="text" name="email" class="form-control" placeholder="Email" value="{{ $teknisi->email }}" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                    <input type="password" name="password" class="form-control" placeholder="Password" value="{{ $teknisi->password }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-success">Simpan</button>

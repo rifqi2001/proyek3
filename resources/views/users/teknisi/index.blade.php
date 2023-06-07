@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="col-lg-6">
-                        <a href="{{ route('teknisi.create') }}" class="btn btn-success btn-icon-split">
+                        <a href="{{ route('create-teknisi') }}" class="btn btn-success btn-icon-split">
                             <span class="icon text-white-50">
                                 <i class="fas fa-plus"></i>
                             </span>
@@ -44,20 +44,19 @@
                                         <tr>
                                             <th>Nama</th>
                                             <th>Email</th>
-                                            <th>id user</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($teknisi as $id => $hasil)
+                                        @foreach ($teknisi as $hasil)
                                             <tr>
                                             <td>{{ $hasil->name }}</td>
                                             <td>{{ $hasil->email }}</td>
-                                            <td>{{ $hasil->user_id }}</td>
-                                            <td><a href="#" class="btn btn-warning btn-circle btn-sm">
-                                                <i class="fas fa-edit"></i>
+                                            <td>
+                                                <a href="/teknisi/{{ $hasil->id }}/edit" class="btn btn-warning btn-circle btn-sm">
+                                                    <i class="fas fa-edit"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
+                                                <a href="/teknisi/{{ $hasil->id }}/destroy" class="btn btn-danger btn-circle btn-sm">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
                                             </td>
