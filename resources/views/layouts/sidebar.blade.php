@@ -21,7 +21,7 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
+            @role('superAdmin')
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -37,13 +37,23 @@
                     </div>
                 </div>
             </li>
-
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('layanan') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Layanan</span></a>
+                </a>
             </li>
+            @endrole
+
+            @role('teknisi')
+            <li class="nav-item">
+                <a class="nav-link" href="">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Riwayat</span></a>
+                </a>
+            </li>
+            @endrole
 
             <!-- Divider -->
             <hr class="sidebar-divider">

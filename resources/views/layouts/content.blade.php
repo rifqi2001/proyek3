@@ -10,7 +10,7 @@
                             <div class="d-flex">
                                 <div class="mt-2">
                                     <h6 class="">Jumlah Layanan</h6>
-                                    <a href="#"><h2 class="mb-0 number-font">{{  $total_layanan[0]->jumlah_layanan  }}</h2></a>
+                                    <a href="#"><h2 class="mb-0 number-font">{{  $total_layanan  }}</h2></a>
                                 </div>
                                 <div class="ms-auto">
                                     <div class="chart-wrapper mt-1">
@@ -29,7 +29,7 @@
                             <div class="d-flex">
                                 <div class="mt-2">
                                     <h6 class="">Total Teknisi</h6>
-                                    <a href="#"><h2 class="mb-0 number-font">{{  $total_teknisi[0]->menghitung_teknisi  }}</h2></a>
+                                    <a href="#"><h2 class="mb-0 number-font">{{  $total_teknisi  }}</h2></a>
                                 </div>
                                 <div class="ms-auto">
                                     <div class="chart-wrapper mt-1">
@@ -49,7 +49,7 @@
                                 <div class="mt-2">
                                     <h6 class="">Total Customer</h6>
                                     {{-- @foreach($hasil as $info) --}}
-                                        <a href="#"><h2 class="mb-0 number-font">{{  $total_customers[0]->menghitung_customers  }}</h2></a>
+                                        <a href="#"><h2 class="mb-0 number-font">{{  $total_customers }}</h2></a>
                                     {{-- @endforeach --}}
                                 </div>
                                 <div class="ms-auto">

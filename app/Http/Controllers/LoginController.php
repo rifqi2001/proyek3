@@ -22,7 +22,19 @@ class LoginController extends Controller
 
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+
+            $roles = ['superAdmin', 'adminAplikasi', 'teknisi', 'customer'];
+            $user = Auth::user();
+
+            if($user->hasRole($roles)) {
+                return redirect()->intended('/dashboard');
+            } else {
+                $messages = [
+                    'required' => 'Login failed',
+                ];
+                return redirect()->back()->withErrors($messages)->with('error', $messages);
+            }
+
         }else{
             $messages = [
                 'required' => 'Login failed',
