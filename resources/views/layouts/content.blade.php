@@ -9,8 +9,8 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="mt-2">
-                                    <h6 class="">Jumlah Transaksi</h6>
-                                    <a href="{{ url('') }}"><h2 class="mb-0 number-font"></h2></a>
+                                    <h6 class="">Jumlah Layanan</h6>
+                                    <a href="#"><h2 class="mb-0 number-font">{{  $total_layanan[0]->jumlah_layanan  }}</h2></a>
                                 </div>
                                 <div class="ms-auto">
                                     <div class="chart-wrapper mt-1">
