@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Teknisi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class TeknisiController extends Controller
 {
@@ -32,17 +34,37 @@ class TeknisiController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|unique:users|max:12',
             'email' => 'required|email:dns|max:255',
             'password' => 'required|min:8|'
         ]);
 
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-        ])->assignRole('teknisi');
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->with('error', $validator->errors()->first())
+                ->withInput();
+        }
+
+        try {
+            DB::beginTransaction();
+
+                $user = User::create([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'password' => bcrypt($request->password),
+                ])->assignRole('teknisi');
+
+                Teknisi::create([
+                    'user_id' => $user->id,
+                ]);
+
+        DB::commit();
+
+        }catch (\Exception $e) {
+            DB::rollBack();
+            dd($e->getMessage());
+        }
 
         return redirect()->route('teknisi')->with('success','Data berhasil ditambah');
     }
