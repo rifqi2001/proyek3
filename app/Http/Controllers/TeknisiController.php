@@ -35,7 +35,7 @@ class TeknisiController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:users|max:12',
+            'name' => 'required|unique:users|max:255',
             'email' => 'required|email:dns|max:255',
             'password' => 'required|min:8|'
         ]);

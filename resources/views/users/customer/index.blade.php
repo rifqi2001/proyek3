@@ -44,6 +44,8 @@
                                         <tr>
                                             <th>Nama</th>
                                             <th>Email</th>
+                                            <th>Waktu dibuat</th>
+                                            <th>Waktu diperbarui</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -51,6 +53,8 @@
                                             <tr>
                                             <td>{{ $hasil->name }}</td>
                                             <td>{{ $hasil->email }}</td>
+                                            <td>{{ $hasil->created_at }}</td>
+                                            <td>{{ $hasil->updated_at }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>

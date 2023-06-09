@@ -26,6 +26,8 @@ Route::get('/login', [LoginController::class, 'index'])->name('loginform')->midd
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::post('/register/create', [LoginController::class, 'create'])->name('create-register');
+
 Route::group(['middleware' => ['role:superAdmin|adminAplikasi|teknisi|customer']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
