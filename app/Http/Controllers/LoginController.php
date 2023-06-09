@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -60,12 +61,6 @@ class LoginController extends Controller
 
     function create(Request $request)
     {
-        // $credentials = $request->validate([
-        //     'name' => 'required|unique:users|max:255',
-        //     'email' => 'required|email:dns|unique:users|max:255',
-        //     'password' => 'required|min:8'
-        // ]);
-
         $validator = Validator::make($request->all(), [
             'name' => 'required|unique:users|max:255',
             'email' => 'required|email:dns|unique:users|max:255',
@@ -93,11 +88,12 @@ class LoginController extends Controller
 
             DB::commit();
         }catch (\Exception $e) {
-            DB::rollBack();
-            dd($e->getMessage());
+            Session::flash('error', 'Gagal membuat akun. Silakan coba lagi.');
+    return redirect()->back()->withInput();
         }
 
-        return redirect()->route('login')->with('success','Data berhasil ditambah');
+        Session::flash('success', 'Akun berhasil dibuat. Silakan login');
+        return redirect()->route('login');
 
         // if(Auth::attempt($credentials)){
         //         return redirect()->route('dashboard')->with('succeess', Auth::user()->name . 'Berhasil');

@@ -196,6 +196,17 @@ body{
 .container #flip{
   display: none;
 }
+
+.notification .success{
+  color: #26ff3f;
+  font-size: 12px;
+}
+
+.notification .failed{
+  color: #ff2626;
+  font-size: 12px;
+}
+
 @media (max-width: 730px) {
   .container .cover{
     display: none;
