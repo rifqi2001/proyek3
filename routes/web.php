@@ -32,9 +32,9 @@ Route::post('/register/create', [LoginController::class, 'create'])->name('creat
 Route::group(['middleware' => ['role:superAdmin|adminAplikasi|teknisi|customer']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+    Route::post('/layanan/create-layanan/store', [LayananController::class, 'store'])->name('simpan-layanan');
     Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');
     Route::get('/layanan/create-layanan', [LayananController::class, 'create'])->name('create-layanan');
-    Route::post('/layanan', [LayananController::class, 'store'])->name('simpan-layanan');
     Route::get('/layanan/{id}/edit', [LayananController::class, 'edit'])->name('edit-layanan');
     Route::put('layanan/{id}', [LayananController::class,'update']);
     Route::get('/layanan/{id}/destroy', [LayananController::class, 'destroy'])->name('hapus-layanan');

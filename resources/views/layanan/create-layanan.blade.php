@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="card-body">
-                            <form action="{{ route('layanan') }}" method="POST">
+                            <form action="{{ route('simpan-layanan') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <input type="text" name="name" class="form-control" placeholder="Nama Layanan" required>

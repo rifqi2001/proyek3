@@ -6,6 +6,8 @@ use App\Models\Layanan;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class LayananController extends Controller
 {
@@ -31,11 +33,35 @@ class LayananController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        // Layanan::create($request->all());
-        // $id = Str::uuid();
-        DB::select('CALL insert_layanan("'.$request->name.'","'.$request->description.'","'.$request->price.'")') ;
-        return redirect('layanan');
+
+        // dd($request);
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->with('error', $validator->errors()->first())
+                ->withInput();
+        }
+
+        try{
+            DB::beginTransaction();
+            
+            Layanan::create([
+                'name' => $request->name,
+                'description' => $request->description,
+                'price' => $request->price,
+            ]);
+
+            DB::commit();
+        }catch (\Exception $e) {
+                Session::flash('error', 'Gagal membuat akun. Silakan coba lagi.');
+            return redirect()->back()->withInput();
+        }
+        return redirect()->back();
     }
 
     /**
