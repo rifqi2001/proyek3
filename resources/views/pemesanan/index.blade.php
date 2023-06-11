@@ -28,12 +28,16 @@
                                 <thead>
                                     <tr>
                                         @role('teknisi')
-                                        <th>ID User</th>
+                                        <th>No</th>
                                         <th>Name</th>
+                                        @endrole
+                                        @role('customer')
+                                        <th>No</th>
                                         @endrole
                                         <th>Nama Layanan</th>
                                         <th>Jumlah Unit</th>
                                         <th>Tipe AC</th>
+                                        <th>Total</th>
                                         <th>Deskripsi</th>
                                         <th>Status</th>
                                         <th>Waktu</th>
@@ -51,6 +55,7 @@
                                                 <td>{{ $pemesanan->name }}</td>
                                                 <td>{{ $pemesanan->jumlah }}</td>
                                                 <td>{{ $pemesanan->tipe }}</td>
+                                                <td>{{ $pemesanan->total }}</td>
                                                 <td>{{ $pemesanan->description }}</td>
                                                 <td>
                                                     @if($pemesanan->status == 'Belum Dikonfirmasi')
@@ -70,11 +75,15 @@
                                         @role('customer')
                                         @foreach($pemesanans as $pemesanan)
                                             @if($pemesanan->user_id == Auth::user()->id)
+                                                @php
+                                                    $no = 1;
+                                                @endphp
                                                 <tr>
-                                                    <td>{{ Auth::user()->id }}</td>
+                                                    <td>{{ $no }}</td>
                                                     <td>{{ $pemesanan->name }}</td>
                                                     <td>{{ $pemesanan->jumlah }}</td>
                                                     <td>{{ $pemesanan->tipe }}</td>
+                                                    <td>{{ $pemesanan->total }}</td>
                                                     <td>{{ $pemesanan->description }}</td>
                                                     <td>
                                                         @if($pemesanan->status == 'Belum Dikonfirmasi')

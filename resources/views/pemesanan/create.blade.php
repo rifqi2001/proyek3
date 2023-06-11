@@ -32,15 +32,16 @@
                             <form action="{{ route('pemesanan.index') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
-                                    <select name="layanan_id" class="form-control" required>
+                                    <select name="layanan_id" id="layanan_id" class="form-control" required>
                                         <option value="">Pilih Layanan</option>
-                                        @foreach ($layanans as $key => $value)
-                                            <option value="{{ $key }}">{{ $value }}</option>
+                                        @foreach ($layanans as $id => $layanan)
+                                            <option value="{{ $id }}" data-price="{{ $prices[$id] }}" data-cost="{{ $costs[$id] }}">{{ $layanan }}</option>
                                         @endforeach
                                     </select>
+                                    
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" name="jumlah" class="form-control" placeholder="Jumlah Unit" required>
+                                    <input type="number" id="jumlah" name="jumlah" class="form-control" placeholder="Jumlah Unit" required>
                                 </div>
                                 <div class="form-group">
                                     <select name="tipe" class="form-control" required>
@@ -52,6 +53,14 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="description" class="form-control" placeholder="Deskripsi detail rumah (ex: pager putih sebelah masjid)" required>
+                                </div>
+                                <div class="form-group">
+                                    <h4>Cost:</h4>
+                                    <input type="text" name="cost" id="cost" class="form-control" placeholder="Pilih Layanan" required readonly>
+                                </div>
+                                <div class="form-group">
+                                    <h4>Total Harga:</h4>
+                                    <input type="text" name="total" id="total" class="form-control" placeholder="Masukan Unit" required readonly>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-success">Simpan</button>
@@ -73,5 +82,44 @@
     <!-- End of Page Wrapper -->
 
 </body>
+
+<script>
+
+
+    window.onload = function() {
+        var layananSelect = document.getElementById('layanan_id');
+        var totalInput = document.getElementById('jumlah');
+        var costInput = document.getElementById('cost');
+        var priceInput = document.getElementById('total');
+
+        function hitungTotal() {
+        var selectedOption = layananSelect.options[layananSelect.selectedIndex];
+        var cost = parseFloat(selectedOption.getAttribute('data-cost'));
+        var price = parseFloat(selectedOption.getAttribute('data-price'));
+        var jumlah = parseInt(totalInput.value);
+
+        
+        if (!isNaN(cost) && !isNaN(price) && !isNaN(jumlah)) {
+            var total = (price * jumlah) + cost;
+            priceInput.value = total;
+        } else {
+            if (selectedOption.value === '') {
+                costInput.value = 'Pilih Jenis Layanan';
+            } else {
+                costInput.value = cost;
+            }
+            priceInput.value = 'Berapa Unit';
+        }
+        }
+
+        layananSelect.addEventListener('change', function() {
+        hitungTotal();
+        });
+
+        totalInput.addEventListener('input', function() {
+            hitungTotal();
+        });
+    };
+</script>
 
 </html>

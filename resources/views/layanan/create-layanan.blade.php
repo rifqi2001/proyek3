@@ -42,6 +42,9 @@
                                     <input type="number" name="price" class="form-control" placeholder="Harga" required>
                                 </div>
                                 <div class="form-group">
+                                    <input type="number" name="cost" class="form-control" placeholder="Cost" required>
+                                </div>
+                                <div class="form-group">
                                     <button type="submit" class="btn btn-success">Simpan</button>
                                 </div>
                             </form>

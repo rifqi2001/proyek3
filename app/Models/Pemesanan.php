@@ -9,7 +9,7 @@ class Pemesanan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'jumlah', 'tipe', 'description', 'status', 'user_id', 'layanans_id'];
+    protected $fillable = ['name', 'jumlah', 'total' ,'tipe', 'description', 'status', 'user_id', 'layanans_id'];
 
     public static function getStatusOptions()
     {
