@@ -29,6 +29,7 @@
                                     <tr>
                                         @role('teknisi')
                                         <th>ID User</th>
+                                        <th>Name</th>
                                         @endrole
                                         <th>Nama Layanan</th>
                                         <th>Jumlah Unit</th>
@@ -40,9 +41,13 @@
                                 </thead>
                                 <tbody>
                                     @role('teknisi')
+                                        @php
+                                            $no = 1;
+                                        @endphp
                                         @foreach($pemesanans as $pemesanan)
                                             <tr>
-                                                <td>{{ $pemesanan->user_id }}</td>
+                                                <td>{{ $no++ }}</td>
+                                                <td>{{ $pemesanan->user->name }}</td>
                                                 <td>{{ $pemesanan->name }}</td>
                                                 <td>{{ $pemesanan->jumlah }}</td>
                                                 <td>{{ $pemesanan->tipe }}</td>
