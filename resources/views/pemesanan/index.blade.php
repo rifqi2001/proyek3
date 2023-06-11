@@ -27,9 +27,9 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        @role('teknisi')
-                                        <th>ID User</th>
-                                        <th>Name</th>
+                                        @role('teknisi, superAdmin')
+                                        <th>No.</th>
+                                        <th>Nama Customer</th>
                                         @endrole
                                         <th>Nama Layanan</th>
                                         <th>Jumlah Unit</th>
@@ -40,6 +40,31 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @role('superAdmin')
+                                        @php
+                                            $no = 1;
+                                        @endphp
+                                        @foreach($pemesanans as $pemesanan)
+                                            <tr>
+                                                <td>{{ $no++ }}</td>
+                                                <td>{{ $pemesanan->user->name }}</td>
+                                                <td>{{ $pemesanan->name }}</td>
+                                                <td>{{ $pemesanan->jumlah }}</td>
+                                                <td>{{ $pemesanan->tipe }}</td>
+                                                <td>{{ $pemesanan->description }}</td>
+                                                <td>
+                                                    @if($pemesanan->status == 'Belum Dikonfirmasi')
+                                                        Belum Dikonfirmasi
+                                                    @elseif($pemesanan->status == 'Dikonfirmasi')
+                                                        Pesanan Dikonfirmasi
+                                                    @elseif($pemesanan->status == 'Dibatalkan')
+                                                        Pesanan Dibatalkan
+                                                    @endif
+                                                </td>
+                                                <td>{{ $pemesanan->created_at }}</td>
+                                            </tr>
+                                        @endforeach
+                                    @endrole
                                     @role('teknisi')
                                         @php
                                             $no = 1;
@@ -71,7 +96,7 @@
                                         @foreach($pemesanans as $pemesanan)
                                             @if($pemesanan->user_id == Auth::user()->id)
                                                 <tr>
-                                                    <td>{{ Auth::user()->id }}</td>
+                                                    {{-- <td>{{ Auth::user()->id }}</td> --}}
                                                     <td>{{ $pemesanan->name }}</td>
                                                     <td>{{ $pemesanan->jumlah }}</td>
                                                     <td>{{ $pemesanan->tipe }}</td>

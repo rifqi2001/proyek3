@@ -60,7 +60,7 @@
                 <i class="fas fa-lock"></i>
                 <input class="form-control" name="password" type="password" placeholder="Enter your password" required>
               </div>
-              <div class="text"><a href="#">Forgot password?</a></div>
+              <div class="text"><a href="#"  style="color: #36b9cc">Forgot password?</a></div>
               <div class="button input-box">
                 <input type="submit" value="Sumbit">
               </div>

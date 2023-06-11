@@ -44,6 +44,13 @@
                     <span>Layanan</span></a>
                 </a>
             </li>
+
+            <li class="nav-item {{ Request::is('pemesanan.index') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('pemesanan.index') }}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Riwayat Pemesanan</span></a>
+                </a>
+            </li>
             @endrole
 
             @role('teknisi')
