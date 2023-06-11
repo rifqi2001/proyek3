@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','Admin')
+@section('title','E-Service')
 
 {{-- @extends('layout')
 

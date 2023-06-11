@@ -94,13 +94,6 @@ class LoginController extends Controller
 
         Session::flash('success', 'Akun berhasil dibuat. Silakan login');
         return redirect()->route('login');
-
-        // if(Auth::attempt($credentials)){
-        //         return redirect()->route('dashboard')->with('succeess', Auth::user()->name . 'Berhasil');
-
-        // }else{
-        //     return redirect('register')->withErrors('Tidak valid');
-        // }
     }
 
 

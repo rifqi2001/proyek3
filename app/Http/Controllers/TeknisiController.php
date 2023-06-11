@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Teknisi;
+use App\Models\Pemesanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -111,5 +112,25 @@ class TeknisiController extends Controller
                 ->delete();
 
     return redirect('/teknisi');
+    }
+
+    public function konfirmasi($id)
+    {
+        $pemesanans = Pemesanan::find($id);
+        if ($pemesanans) {
+            $pemesanans->setStatus('Dikonfirmasi');
+            return redirect()->back()->with('success', 'Pemesanan berhasil dikonfirmasi.');
+        }
+        return redirect()->back()->with('error', 'Pemesanan tidak ditemukan.');
+    }
+
+    public function batalkan($id)
+    {
+        $pemesanans = Pemesanan::find($id);
+        if ($pemesanans) {
+            $pemesanans->setStatus('Dibatalkan');
+            return redirect()->back()->with('success', 'Pemesanan berhasil dibatalkan.');
+        }
+        return redirect()->back()->with('error', 'Pemesanan tidak ditemukan.');
     }
 }

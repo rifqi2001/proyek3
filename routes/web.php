@@ -6,6 +6,7 @@ use App\Http\Controllers\LayananController;
 use App\Http\Controllers\TeknisiController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PemesananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,11 @@ Route::group(['middleware' => ['role:superAdmin|adminAplikasi|teknisi|customer']
     Route::get('/teknisi/{id}/edit', [TeknisiController::class, 'edit'])->name('edit-teknisi');
     Route::put('teknisi/{id}', [TeknisiController::class,'update']);
     Route::get('teknisi/{id}/destroy', [TeknisiController::class,'destroy'])->name('hapus-teknisi');
+    Route::get('/pemesanan/{id}/konfirmasi', [TeknisiController::class, 'konfirmasi'])->name('teknisi.pemesanan.konfirmasi');
+    Route::get('/pemesanan/{id}/batalkan', [TeknisiController::class, 'batalkan'])->name('teknisi.pemesanan.batalkan');
+
 
     Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
+
+    Route::resource('/pemesanan', PemesananController::class);
 });

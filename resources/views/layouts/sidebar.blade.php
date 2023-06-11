@@ -1,5 +1,5 @@
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
@@ -13,7 +13,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('dashboard') ? 'active' : '' }}">
                 <a class="nav-link" href="/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -23,7 +23,7 @@
             <hr class="sidebar-divider">
             @role('superAdmin')
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('teknisi', 'customer') ? 'active' : '' }}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
@@ -32,13 +32,13 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Akun:</h6>
-                        <a class="collapse-item" href="/teknisi">Teknisi</a>
-                        <a class="collapse-item" href="/customer">Customer</a>
+                        <a class="collapse-item {{ Request::is('teknisi') ? 'active' : '' }} text-info" href="/teknisi">Teknisi</a>
+                        <a class="collapse-item {{ Request::is('customer') ? 'active' : '' }} text-info" href="/customer">Customer</a>
                     </div>
                 </div>
             </li>
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('layanan') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('layanan') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Layanan</span></a>
@@ -47,11 +47,35 @@
             @endrole
 
             @role('teknisi')
-            <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Riwayat</span></a>
+            <li class="nav-item {{ Request::is('pemesanan.index') ? 'active' : '' }}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Pemesanan</span>
                 </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Pilih Menu:</h6>
+                        <a class="collapse-item {{ Request::is('pemesanan.index') ? 'active' : '' }} text-info" href="{{ route('pemesanan.index') }}">Cek Pesanan</a>
+                    </div>
+                </div>
+            </li>
+            @endrole
+
+            @role('customer')
+            <li class="nav-item {{ Request::is('pemesanan.create', 'pemesanan.index') ? 'active' : '' }}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Pemesanan</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Pilih Menu:</h6>
+                        <a class="collapse-item {{ Request::is('pemesanan.create') ? 'active' : '' }} text-info" href="{{ route('pemesanan.create') }}">Buat Pesanan</a>
+                        <a class="collapse-item {{ Request::is('pemesanan.index') ? 'active' : '' }} text-info" href="{{ route('pemesanan.index') }}">Riwayat Pesanan</a>
+                    </div>
+                </div>
             </li>
             @endrole
 

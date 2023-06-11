@@ -207,6 +207,7 @@ body{
   font-size: 12px;
 }
 
+
 @media (max-width: 730px) {
   .container .cover{
     display: none;
