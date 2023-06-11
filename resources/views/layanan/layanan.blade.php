@@ -45,6 +45,7 @@
                                             <th>Nama</th>
                                             <th>Deskripsi</th>
                                             <th>Harga</th>
+                                            <th>Cost</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -54,6 +55,7 @@
                                                 <td>{{ $layanan->name }}</td>
                                                 <td>{{ $layanan->description }}</td>
                                                 <td>{{ $layanan->price }}</td>
+                                                <td>{{ $layanan->cost }}</td>
                                                 <td><a href="/layanan/{{ $layanan->id }}/edit" class="btn btn-warning btn-circle btn-sm">
                                                     <i class="fas fa-edit"></i>
                                                 </a>

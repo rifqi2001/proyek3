@@ -24,10 +24,14 @@ class PemesananController extends Controller
      */
     public function create(Request $request)
     {
-        $layanans = Layanan::pluck('name', 'id');
-        
-        return view('pemesanan.create', compact('layanans'));
+        // dd($layanans)
+        $prices = Layanan::get()->pluck('price', 'id');
+        $costs = Layanan::get()->pluck('cost', 'id');
+        $layanans = Layanan::get()->pluck('name', 'id');
+    
+        return view('pemesanan.create', compact('layanans', 'costs', 'prices'));
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -49,12 +53,15 @@ class PemesananController extends Controller
         $pemesanans = Pemesanan::create([
             'name' => $layanans->name,
             'jumlah' => $request->jumlah,
+            'total' => $request->total,
             'tipe' => $request->tipe,
             'description' => $request->description,
             'status' => 'Belum Dikonfirmasi',
             'user_id' => $users->id,
             'layanans_id' => $layanans->id,
         ]);
+
+        // dd($pemesanans);
 
         return redirect()->route('pemesanan.index', compact('pemesanans',))->with('success', 'Pemesanan berhasil dibuat.');
     }

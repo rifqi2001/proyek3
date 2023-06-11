@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Layanan;
+use App\Models\Pemesanan;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -39,6 +40,7 @@ class LayananController extends Controller
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
+            'cost' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -54,6 +56,7 @@ class LayananController extends Controller
                 'name' => $request->name,
                 'description' => $request->description,
                 'price' => $request->price,
+                'cost' => $request->cost,
             ]);
 
             DB::commit();
@@ -97,11 +100,9 @@ class LayananController extends Controller
      */
     public function destroy(string $id)
     {
-        // $layanan = Layanan::find($id);
-        // $layanan->delete();
         
-        layanan::where('id', $id)
-                ->delete();
+        Pemesanan::where('layanans_id', $id)->delete();
+        layanan::where('id', $id)->delete();
 
         return redirect('/layanan');
     }
