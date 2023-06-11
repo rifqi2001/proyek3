@@ -39,33 +39,53 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($pemesanans as $pemesanan)
-                                        @if($pemesanan->user_id == Auth::user()->id)
+                                    @role('teknisi')
+                                        @foreach($pemesanans as $pemesanan)
                                             <tr>
-                                                @role('teknisi')
-                                                <td>{{ Auth::user()->id }}</td>
-                                                @endrole
+                                                <td>{{ $pemesanan->user_id }}</td>
                                                 <td>{{ $pemesanan->name }}</td>
                                                 <td>{{ $pemesanan->jumlah }}</td>
                                                 <td>{{ $pemesanan->tipe }}</td>
                                                 <td>{{ $pemesanan->description }}</td>
-                                                <td>@if($pemesanan->status == 'Belum Dikonfirmasi')
-                                                    @role('teknisi')
-                                                    <a href="{{ route('teknisi.pemesanan.konfirmasi', $pemesanan->id) }}" class="button text-warning">Konfirmasi</a>
-                                                    <a href="{{ route('teknisi.pemesanan.batalkan', $pemesanan->id) }}" class="button text-danger">Batalkan</a>
-                                                    @else
-                                                    Belum Dikonfirmasi
-                                                    @endrole
-                                                @elseif($pemesanan->status == 'Dikonfirmasi')
-                                                    Pesanan Dikonfirmasi
-                                                @elseif($pemesanan->status == 'Dibatalkan')
-                                                    Pesanan Dibatalkan
-                                                @endif
-                                            </td>
+                                                <td>
+                                                    @if($pemesanan->status == 'Belum Dikonfirmasi')
+                                                        <a href="{{ route('teknisi.pemesanan.konfirmasi', $pemesanan->id) }}" class="button text-warning">Konfirmasi</a>
+                                                        <a href="{{ route('teknisi.pemesanan.batalkan', $pemesanan->id) }}" class="button text-danger">Batalkan</a>
+                                                    @elseif($pemesanan->status == 'Dikonfirmasi')
+                                                        Pesanan Dikonfirmasi
+                                                    @elseif($pemesanan->status == 'Dibatalkan')
+                                                        Pesanan Dibatalkan
+                                                    @endif
+                                                </td>
                                                 <td>{{ $pemesanan->created_at }}</td>
                                             </tr>
-                                        @endif
-                                    @endforeach
+                                        @endforeach
+                                        @endrole
+
+                                        @role('customer')
+                                        @foreach($pemesanans as $pemesanan)
+                                            @if($pemesanan->user_id == Auth::user()->id)
+                                                <tr>
+                                                    <td>{{ Auth::user()->id }}</td>
+                                                    <td>{{ $pemesanan->name }}</td>
+                                                    <td>{{ $pemesanan->jumlah }}</td>
+                                                    <td>{{ $pemesanan->tipe }}</td>
+                                                    <td>{{ $pemesanan->description }}</td>
+                                                    <td>
+                                                        @if($pemesanan->status == 'Belum Dikonfirmasi')
+                                                            Belum Dikonfirmasi
+                                                        @elseif($pemesanan->status == 'Dikonfirmasi')
+                                                            Pesanan Dikonfirmasi
+                                                        @elseif($pemesanan->status == 'Dibatalkan')
+                                                            Pesanan Dibatalkan
+                                                        @endif
+                                                    </td>
+                                                    <td>{{ $pemesanan->created_at }}</td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
+                                        @endrole
+
                                 </tbody>
                             </table>
                         </div>
