@@ -27,12 +27,13 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        @role('teknisi, superAdmin')
+                                        @role('teknisi')
                                         <th>No.</th>
                                         <th>Nama Customer</th>
                                         @endrole
-                                        @role('customer')
-                                        <th>No</th>
+                                        @role('superAdmin')
+                                        <th>No.</th>
+                                        <th>Nama Customer</th>
                                         @endrole
                                         <th>Nama Layanan</th>
                                         <th>Jumlah Unit</th>
@@ -100,11 +101,11 @@
                                         @role('customer')
                                         @foreach($pemesanans as $pemesanan)
                                             @if($pemesanan->user_id == Auth::user()->id)
-                                                @php
+                                                {{-- @php
                                                     $no = 1;
-                                                @endphp
+                                                @endphp --}}
                                                 <tr>
-                                                    <td>{{ $no }}</td>
+                                                    {{-- <td>{{ $no++ }}</td> --}}
                                                     <td>{{ $pemesanan->name }}</td>
                                                     <td>{{ $pemesanan->jumlah }}</td>
                                                     <td>{{ $pemesanan->tipe }}</td>

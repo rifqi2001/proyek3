@@ -54,13 +54,14 @@
                                 <div class="form-group">
                                     <input type="text" name="description" class="form-control" placeholder="Deskripsi detail rumah (ex: pager putih sebelah masjid)" required>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <h4>Cost:</h4>
-                                    <input type="text" name="cost" id="cost" class="form-control" placeholder="Pilih Layanan" required readonly>
-                                </div>
+                                    <input type="text" name="cost" id="cost" class="form-control" placeholder="" required readonly>
+                                </div> --}}
                                 <div class="form-group">
                                     <h4>Total Harga:</h4>
-                                    <input type="text" name="total" id="total" class="form-control" placeholder="Masukan Unit" required readonly>
+                                    <input type="text" name="total" id="total" class="form-control" placeholder="0" required readonly>
+                                    <h6 style="color: red">*terdapat pajak ongkir sebesar 20000</h6>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-success">Simpan</button>

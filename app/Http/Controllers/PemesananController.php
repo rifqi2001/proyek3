@@ -49,11 +49,15 @@ class PemesananController extends Controller
         if (!$users) {
             return redirect()->back()->with('error', 'Layanan tidak valid.');
         }
+        $hargaLayanan = $layanans->price;
+        $hargaOngkir = 20000; // Harga default untuk ongkir
+
+    $totalHarga = ($hargaLayanan) * $request->jumlah + ($hargaOngkir);
 
         $pemesanans = Pemesanan::create([
             'name' => $layanans->name,
             'jumlah' => $request->jumlah,
-            'total' => $request->total,
+            'total' => $totalHarga,
             'tipe' => $request->tipe,
             'description' => $request->description,
             'status' => 'Belum Dikonfirmasi',
