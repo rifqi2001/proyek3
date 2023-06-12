@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeknisiController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
@@ -52,4 +53,8 @@ Route::group(['middleware' => ['role:superAdmin|adminAplikasi|teknisi|customer']
     Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
 
     Route::resource('/pemesanan', PemesananController::class);
+
+    Route::get('edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('update', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::resource('/profile', ProfileController::class);
 });

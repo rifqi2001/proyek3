@@ -56,6 +56,7 @@
                                                 <td>{{ $pemesanan->name }}</td>
                                                 <td>{{ $pemesanan->jumlah }}</td>
                                                 <td>{{ $pemesanan->tipe }}</td>
+                                                <td>{{ $pemesanan->total }}</td>
                                                 <td>{{ $pemesanan->description }}</td>
                                                 <td>
                                                     @if($pemesanan->status == 'Belum Dikonfirmasi')

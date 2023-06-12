@@ -22,7 +22,20 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'f_name',
+        'l_name',
+        'address',
+        'phone',
     ];
+
+    public function updateProfile(array $data)
+    {
+        // Menggunakan metode updateOrCreate() untuk memperbarui atau membuat entri baru
+        $this->updateOrCreate(
+            ['id' => $this->id], // Kolom yang digunakan untuk mencocokkan entri yang ada
+            $data // Data yang akan diperbarui atau disimpan
+        );
+    }
 
     // protected $guarded = [];
 
