@@ -18,7 +18,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Layanan</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Pemesanan</h1>
                     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p>
@@ -26,43 +26,26 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-info">Daftar Layanan</h6>
-                        </div>
-
-                        <div class="col-lg-6">
-                        <a href="{{ route('create-layanan') }}" class="btn btn-success btn-icon-split">
-                            <span class="icon text-white-50">
-                                <i class="fas fa-plus"></i>
-                            </span>
-                            <span class="text">Tambah Layanan</span>
-                        </a>
+                            <h6 class="m-0 font-weight-bold text-info">Profil Pemesan</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Nama</th>
-                                            <th>Deskripsi</th>
-                                            <th>Harga</th>
-                                            {{-- <th>Cost</th> --}}
-                                            <th>Aksi</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Alamat Rumah</th>
+                                            <th>No. Telepon</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($layanans as $layanan)
+                                        @foreach($user as $hasil)
                                             <tr>
-                                                <td>{{ $layanan->name }}</td>
-                                                <td>{{ $layanan->description }}</td>
-                                                <td>{{ $layanan->price }}</td>
-                                                {{-- <td>{{ $layanan->cost }}</td> --}}
-                                                <td><a href="/layanan/{{ $layanan->id }}/edit" class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                                    <a href="/layanan/{{ $layanan->id }}/destroy" class="btn btn-danger btn-circle btn-sm">
-                                                        <i class="fas fa-trash"></i>
-                                                    </a>
-                                                </td>
+                                                <td>{{ $hasil->f_name }}</td>
+                                                <td>{{ $hasil->l_name }}</td>
+                                                <td>{{ $hasil->address }}</td>
+                                                <td>{{ $hasil->phone }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>

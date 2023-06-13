@@ -35,7 +35,7 @@
                                     <select name="layanan_id" id="layanan_id" class="form-control" required>
                                         <option value="">Pilih Layanan</option>
                                         @foreach ($layanans as $id => $layanan)
-                                            <option value="{{ $id }}" data-price="{{ $prices[$id] }}" data-cost="{{ $costs[$id] }}">{{ $layanan }}</option>
+                                            <option value="{{ $id }}" data-price="{{ $prices[$id] }}"">{{ $layanan }}</option>
                                         @endforeach
                                     </select>
                                     
@@ -52,7 +52,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="description" class="form-control" placeholder="Deskripsi detail rumah (ex: pager putih sebelah masjid)" required>
+                                    <input type="text" name="description" class="form-control" placeholder="Deskripsi detail rumah (ex: pager putih sebelah toko)" required>
                                 </div>
                                 {{-- <div class="form-group">
                                     <h4>Cost:</h4>
@@ -60,7 +60,7 @@
                                 </div> --}}
                                 <div class="form-group">
                                     <h4>Total Harga:</h4>
-                                    <input type="text" name="total" id="total" class="form-control" placeholder="0" required readonly>
+                                    <input type="text" name="total" id="total" class="form-control" placeholder="" required readonly>
                                     <h6 style="color: red">*terdapat pajak ongkir sebesar 20000</h6>
                                 </div>
                                 <div class="form-group">

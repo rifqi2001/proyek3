@@ -18,7 +18,7 @@
                     <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                     <!-- Profile picture upload button-->
-                    <button class="btn btn-primary" type="button">Upload new image</button>
+                    <button type="submit">Upload Gambar</button>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
             <div class="card mb-4">
                 <div class="card-header">Account Details</div>
                 @if(session()->has('message'))
-                    <div class="text-green-600 mb-4" style="color: rgb(36, 255, 36)">{{ session()->get('message') }}</div>
+                    <div class="text-600 mb-4" style="color: rgb(36, 255, 36)">{{ session()->get('message') }}</div>
                 @endif
                 <div class="card-body">
                     <form action="{{ route('profile.update') }}" method="post">

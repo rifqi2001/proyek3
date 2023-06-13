@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 class ProfileController extends Controller
 {
 
+    public function index()
+    {
+        $user = User::all();
+        return view('profile.index', compact('user'));
+    }
+
     public function edit()
     {
         $user = Auth::user();
@@ -24,31 +30,25 @@ class ProfileController extends Controller
 
         if ($user->hasRole('customer')) {
             $request->validate([
-                'name' => ['string', 'min:3', 'max:255', 'required', 'unique:users,name,' . auth()->id() ],
-                'f_name' => ['string', 'required'],
-                'l_name' => ['string', 'required'],
+                'name' => ['required', 'string', 'min:3', 'max:255', 'unique:users,name,' . auth()->id() ],
+                'f_name' => ['required', 'string'],
+                'l_name' => ['required','string'],
                 'email' => ['email:dns', 'max:255', 'required'],
                 'address' => ['string', 'max:255', 'required'],
                 'password' => ['min:8', 'required'],
-                'phone' => ['string', 'required', 'max:15'],
+                'phone' => ['required', 'string', 'max:15'],
             ]);
         }
 
         $user->update([
+            'name' => $request->input('name'),
             'f_name' => $request->input('f_name'),
             'l_name' => $request->input('l_name'),
+            'email' => $request->input('email'),
             'address' => $request->input('address'),
+            'password' => $request->input('password'),
             'phone' => $request->input('phone'),
         ]);
-        // auth()->user()->update([
-        //     'name' => $request->name,
-        //     'f_name' => $request->f_name,
-        //     'l_name' => $request->l_name,
-        //     'email' => $request->email,
-        //     'address' => $request->address,
-        //     'password' => $request->password,
-        //     'phone' => $request->phone,
-        // ]);
 
         return back()->with('message', 'Profil berhasil di perbarui');
     }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InfoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\ProfileController;
@@ -53,8 +54,12 @@ Route::group(['middleware' => ['role:superAdmin|adminAplikasi|teknisi|customer']
     Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
 
     Route::resource('/pemesanan', PemesananController::class);
+    Route::get('/pemesanan/{id}/destroy', [PemesananController::class, 'destroy'])->name('hapus-pesanan');
 
+    Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('update', [ProfileController::class, 'update'])->name('profile.update');
+
+    Route::get('info', [InfoController::class, 'index'])->name('info.index');
     // Route::resource('/profile', ProfileController::class);
 });

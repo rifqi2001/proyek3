@@ -30,6 +30,7 @@
                                         @role('teknisi')
                                         <th>No.</th>
                                         <th>Nama Customer</th>
+                                        <th>Detail</th>
                                         @endrole
                                         @role('superAdmin')
                                         <th>No.</th>
@@ -42,6 +43,9 @@
                                         <th>Deskripsi</th>
                                         <th>Status</th>
                                         <th>Waktu</th>
+                                        @role('customer')
+                                        <th>Aksi</th>
+                                        @endrole
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -79,6 +83,7 @@
                                             <tr>
                                                 <td>{{ $no++ }}</td>
                                                 <td>{{ $pemesanan->user->name }}</td>
+                                                <td><a href="{{ route('profile.index', ['user_id' => $pemesanan->user->id]) }}">Detail</a></td>
                                                 <td>{{ $pemesanan->name }}</td>
                                                 <td>{{ $pemesanan->jumlah }}</td>
                                                 <td>{{ $pemesanan->tipe }}</td>
@@ -122,6 +127,11 @@
                                                         @endif
                                                     </td>
                                                     <td>{{ $pemesanan->created_at }}</td>
+                                                    <td>
+                                                        <a href="/pemesanan/{{ $pemesanan->id }}/destroy" class="btn btn-danger btn-split btn-sm">
+                                                            <h6>Batalkan</h6>
+                                                        </a>
+                                                    </td>
                                                 </tr>
                                             @endif
                                         @endforeach

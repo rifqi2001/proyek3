@@ -26,10 +26,9 @@ class PemesananController extends Controller
     {
         // dd($layanans)
         $prices = Layanan::get()->pluck('price', 'id');
-        $costs = Layanan::get()->pluck('cost', 'id');
         $layanans = Layanan::get()->pluck('name', 'id');
     
-        return view('pemesanan.create', compact('layanans', 'costs', 'prices'));
+        return view('pemesanan.create', compact('layanans', 'prices'));
     }
     
 
@@ -99,6 +98,8 @@ class PemesananController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Pemesanan::where('id', $id)->delete();
+
+    return redirect()->route('pemesanan.index');
     }
 }

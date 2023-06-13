@@ -40,7 +40,6 @@ class LayananController extends Controller
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
-            'cost' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -56,15 +55,14 @@ class LayananController extends Controller
                 'name' => $request->name,
                 'description' => $request->description,
                 'price' => $request->price,
-                'cost' => $request->cost,
             ]);
 
             DB::commit();
         }catch (\Exception $e) {
-                Session::flash('error', 'Gagal membuat akun. Silakan coba lagi.');
+                Session::flash('error', 'Gagal membuat layanan. Silakan coba lagi.');
             return redirect()->back()->withInput();
         }
-        return redirect()->back();
+        return redirect()->route('layanan');
     }
 
     /**
