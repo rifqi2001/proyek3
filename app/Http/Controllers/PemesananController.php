@@ -13,10 +13,49 @@ class PemesananController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        \Midtrans\Config::$serverKey = 'SB-Mid-server-RitUzHnJr_UPjTeA7jH-o9p3';
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+        $user = User::find($request->user()->id);
+        
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => rand(),
+                'gross_amount' => 10000,
+            ),
+            'item_details' => array(
+                [
+                    'id' => '1',
+                    'price' => '80000',
+                    'quantity' => 1,
+                    'name' => 'Perbaikan AC',
+                ],
+                [
+                    'id' => '2',
+                    'price' => '70000',
+                    'quantity' => 1,
+                    'name' => 'Cuci AC',
+                ]
+                ),
+            'customer_details' => array(
+                'first_name' => $user->f_name,
+                'last_name' => $user->l_name,
+                'email' => $user->email,
+                'phone' => $user->phone,
+            ),
+        );
+
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+
         $pemesanans = Pemesanan::all();
-        return view('pemesanan.index', compact('pemesanans'));
+        return view('pemesanan.index', compact('pemesanans'), ['snap_token'=>$snapToken]);
     }
 
     /**
@@ -102,4 +141,10 @@ class PemesananController extends Controller
 
     return redirect()->route('pemesanan.index');
     }
+
+    public function post(Request $request)
+    {
+        return $request;
+    }
+
 }

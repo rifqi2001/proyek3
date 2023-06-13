@@ -31,8 +31,8 @@ class ProfileController extends Controller
         if ($user->hasRole('customer')) {
             $request->validate([
                 'name' => ['required', 'string', 'min:3', 'max:255', 'unique:users,name,' . auth()->id() ],
-                'f_name' => ['required', 'string'],
-                'l_name' => ['required','string'],
+                'f_name' => ['required', 'string', 'max:15'],
+                'l_name' => ['required','string', 'max:15'],
                 'email' => ['email:dns', 'max:255', 'required'],
                 'address' => ['string', 'max:255', 'required'],
                 'password' => ['min:8', 'required'],

@@ -8,6 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script type="text/javascript"
+                    src="https://app.sandbox.midtrans.com/snap/snap.js"
+                    data-client-key="SB-Mid-client-kZQP4mTr-QbSxUYJ"></script>
+                    <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
+                    <script
+                        src="https://code.jquery.com/jquery-3.7.0.min.js"
+                        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+                        crossorigin="anonymous">
+                    </script>
 
     <title>@yield('title')</title>
 

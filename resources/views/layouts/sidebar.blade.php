@@ -90,6 +90,12 @@
                     </div>
                 </div>
             </li>
+            {{-- <li class="nav-item {{ Request::is('pembayaran') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('pembayaran.index') }}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Pembayaran</span></a>
+                </a>
+            </li> --}}
             @endrole
 
             <!-- Divider -->

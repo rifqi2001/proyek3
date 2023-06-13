@@ -9,6 +9,7 @@ use App\Http\Controllers\TeknisiController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PemesananController;
+use App\Http\Controllers\PembayaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,5 +62,8 @@ Route::group(['middleware' => ['role:superAdmin|adminAplikasi|teknisi|customer']
     Route::put('update', [ProfileController::class, 'update'])->name('profile.update');
 
     Route::get('info', [InfoController::class, 'index'])->name('info.index');
+
+    Route::get('/pemesanan', [PemesananController::class, 'index'])->name('pemesanan.index');
+    Route::post('/pemesanan', [PemesananController::class, 'post']);
     // Route::resource('/profile', ProfileController::class);
 });

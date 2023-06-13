@@ -131,6 +131,12 @@
                                                         <a href="/pemesanan/{{ $pemesanan->id }}/destroy" class="btn btn-danger btn-split btn-sm">
                                                             <h6>Batalkan</h6>
                                                         </a>
+                                                        <button id="pay-button">Pay!</button>
+
+                    <form action="" id="submit_form" method="POST">
+                        @csrf
+                        <input type="hidden" name="json" id="json_callback">
+                    </form>
                                                     </td>
                                                 </tr>
                                             @endif
